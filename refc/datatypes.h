@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <pthread.h>
 #include <stdint.h>
 
 #define NO_TAG 0
@@ -143,18 +142,6 @@ typedef struct
     size_t len;
     char *buffer;
 } Value_Buffer;
-
-typedef struct
-{
-    Value_header header;
-    pthread_mutex_t *mutex;
-} Value_Mutex;
-
-typedef struct
-{
-    Value_header header;
-    pthread_cond_t *cond;
-} Value_Condition;
 
 typedef struct
 {
