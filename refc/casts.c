@@ -64,10 +64,10 @@ Value *cast_i32_to_string(Value *input)
 	Value_String *retVal = (Value_String *)newValue();
 	retVal->header.tag = STRING_TAG;
 	Value_Int32 *from = (Value_Int32 *)input;
-	int l = snprintf(NULL, 0, "%i", from->i32);
+	int l = snprintf(NULL, 0, "%li", from->i32);
 	retVal->str = malloc((l + 1) * sizeof(char));
 	memset(retVal->str, 0, l + 1);
-	sprintf(retVal->str, "%i", from->i32);
+	sprintf(retVal->str, "%li", from->i32);
 
 	return (Value *)retVal;
 }
@@ -135,10 +135,10 @@ Value *cast_i64_to_string(Value *input)
 	Value_String *retVal = (Value_String *)newValue();
 	retVal->header.tag = STRING_TAG;
 	Value_Int64 *from = (Value_Int64 *)input;
-	int l = snprintf(NULL, 0, "%" PRIu64 "", from->i64);
+	int l = snprintf(NULL, 0, "%lli", from->i64);
 	retVal->str = malloc((l + 1) * sizeof(char));
 	memset(retVal->str, 0, l + 1);
-	sprintf(retVal->str, "%" PRIu64 "", from->i64);
+	sprintf(retVal->str, "%lli", from->i64);
 
 	return (Value *)retVal;
 }
